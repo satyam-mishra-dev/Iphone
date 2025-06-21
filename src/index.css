@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Ensure smooth scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /* Prevent zoom on double tap */
+  touch-action: manipulation;
+}
+
 body {
   color: white;
   width: 100dvw;
@@ -19,16 +27,8 @@ body {
   /* Fix for mobile scrolling */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: none;
-}
-
-html {
-  /* Ensure smooth scrolling on mobile */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-
-canvas {
-  touch-action: none;
+  /* Allow vertical scrolling but prevent horizontal */
+  touch-action: pan-y;
 }
 
 /* Fix for mobile viewport issues */
@@ -36,6 +36,18 @@ canvas {
   body {
     height: -webkit-fill-available;
   }
+}
+
+canvas {
+  /* Only disable touch for canvas elements, not the whole page */
+  touch-action: none;
+  pointer-events: auto;
+}
+
+/* Ensure scrollable containers work on mobile */
+.scrollable {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .screen-max-width {
