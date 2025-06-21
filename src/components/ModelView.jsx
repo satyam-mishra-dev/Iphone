@@ -28,6 +28,12 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
         rotateSpeed={0.4}
         target={new THREE.Vector3(0, 0 ,0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
+        enableDamping={true}
+        dampingFactor={0.05}
+        touches={{
+          ONE: THREE.TOUCH.ROTATE,
+          TWO: THREE.TOUCH.DOLLY_PAN
+        }}
       /> 
 
       <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, 0 ,0]}>

@@ -16,10 +16,28 @@ body {
   background: #000;
   border-color: #3b3b3b;
   user-select: none;
+  /* Fix for mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+html {
+  /* Ensure smooth scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 canvas {
   touch-action: none;
+  /* Prevent canvas from blocking scroll events */
+  pointer-events: auto;
+}
+
+/* Fix for mobile viewport issues */
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available;
+  }
 }
 
 .screen-max-width {

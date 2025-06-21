@@ -92,6 +92,16 @@ const Model = () => {
                 overflow: 'hidden'
               }}
               eventSource={document.getElementById('root')}
+              eventPrefix="client"
+              gl={{ 
+                preserveDrawingBuffer: true,
+                antialias: true,
+                alpha: true
+              }}
+              dpr={[1, 2]}
+              onCreated={(state) => {
+                state.gl.domElement.style.touchAction = 'auto'
+              }}
             >
               <View.Port />
             </Canvas>
