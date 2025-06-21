@@ -12,6 +12,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
       index={index}
       id={gsapType}
       className={`w-full h-full absolute ${index === 2 ? 'right-[-100%]' : ''}`}
+      style={{ pointerEvents: 'auto' }}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
@@ -30,10 +31,6 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
         enableDamping={true}
         dampingFactor={0.05}
-        touches={{
-          ONE: THREE.TOUCH.ROTATE,
-          TWO: THREE.TOUCH.DOLLY_PAN
-        }}
       /> 
 
       <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, 0 ,0]}>

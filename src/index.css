@@ -29,8 +29,6 @@ html {
 
 canvas {
   touch-action: none;
-  /* Prevent canvas from blocking scroll events */
-  pointer-events: auto;
 }
 
 /* Fix for mobile viewport issues */
